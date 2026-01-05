@@ -24,13 +24,13 @@ show_battery_ui() {
     ICON=$(battery_icon "$PERCENT" "$STATUS")
 
     whiptail \
-        --title " $ICON  Battery " \
+        --title " $ICON  Battery  (ESC to quit)" \
         --gauge "\
 Status: $STATUS
 Time remaining: $TIME
 " \
         10 60 "$PERCENT"
 
-    sleep 1
+    return $?   # VERY IMPORTANT: return whiptail exit code
 }
 

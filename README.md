@@ -18,4 +18,5 @@ sudo pacman -S dialog upower libnewt
 
 ## Exit
 Press CTRL+C
-
+or
+Press ESC
