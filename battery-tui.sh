@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$BASE_DIR/lib/utils.sh"
+source "$BASE_DIR/lib/battery.sh"
+source "$BASE_DIR/lib/ui.sh"
+
+require dialog
+
+while true; do
+    BATTERY_DATA=$(get_battery_info) || {
+        error_dialog "Battery not detected"
+        exit 1
+    }
+
+    STATUS=$(echo "$BATTERY_DATA" | cut -d'|' -f1)
+    PERCENT=$(echo "$BATTERY_DATA" | cut -d'|' -f2)
+    TIME=$(echo "$BATTERY_DATA" | cut -d'|' -f3)
+
+    show_battery_ui "$STATUS" "$PERCENT" "$TIME"
+done
+
