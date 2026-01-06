@@ -7,7 +7,7 @@ require() {
     }
 }
 
-error_dialog() {
-    dialog --title "Error" --msgbox "$1" 7 40
+has_nerd_font() {
+    fc-list | grep -qi "nerd"
 }
 
