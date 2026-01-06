@@ -24,7 +24,8 @@ Built with:
 ```bash
 sudo pacman -S dialog upower nerd-fonts
 ```
-```
 
 ## Run
+```bash
 ./battery-tui.sh
+```
